@@ -1,6 +1,7 @@
 package co.Proyecto_Backendll.application.service.Impl;
 
 import co.Proyecto_Backendll.application.service.StudentService;
+import co.Proyecto_Backendll.domain.Exceptions.StudentNotFoundException;
 import co.Proyecto_Backendll.domain.Student;
 import co.Proyecto_Backendll.domain.repository.StudentRepository;
 import org.springframework.stereotype.Service;
@@ -44,9 +45,10 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void deleteStudentById(Long id) {
-        if (studentRepository.existsById(id)) {
-            studentRepository.deleteById(id);
+        if (!studentRepository.existsById(id)) {
+            throw new StudentNotFoundException(id);
         }
+        studentRepository.deleteById(id);
     }
 
     @Override

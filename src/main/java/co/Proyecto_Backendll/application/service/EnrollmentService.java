@@ -9,8 +9,6 @@ public interface EnrollmentService {
 
     List<Enrollment> findAll();
 
-    Optional<Enrollment> findByName(String name);
-
     Enrollment save(Enrollment enrollment);
 
     void deleteById(Long id);

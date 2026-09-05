@@ -23,11 +23,6 @@ public class EnrollmentServiceImpl implements EnrollmentService {
     }
 
     @Override
-    public Optional<Enrollment> findByName(String name) {
-        return enrollmentRepository.findByName(name);
-    }
-
-    @Override
     public Enrollment save(Enrollment enrollment) {
         return enrollmentRepository.save(enrollment);
     }
